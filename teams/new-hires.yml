@@ -11,6 +11,7 @@ name: New Hires
 policies:
   - path: ../lib/macos/policies/macos-device-health.policies.yml
   - path: ../lib/linux/policies/linux-device-health.policies.yml
+  - path: ../lib/macos/policies/dns-resolvers.policies.yml
 queries:
   - path: ../lib/all/queries/collect-usb-devices.queries.yml
 agent_options:
@@ -22,9 +23,9 @@ controls:
   macos_updates:
     deadline: "2025-10-31"
     minimum_version: "26.0"
-  
   scripts:
     - path: ../lib/macos/scripts/set-timezone.script.sh
+    - path: ../lib/macos/scripts/set-dns-cloudflare.sh
 team_settings:
   secrets:
     - secret: "$FLEET_NEW_HIRES_ENROLL_SECRET"
